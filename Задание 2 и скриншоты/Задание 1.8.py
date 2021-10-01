@@ -4,10 +4,10 @@ def N():
     a = int(input())
     b = int(input())
     c = int(input())
-    print("Ответ")
+    print("Ответ:")
     if(a == b == c):
         return 3
-    elif(a == v or c == b or a == c):
+    elif(a == b or c == b or a == c):
         return 2
     else:
         return 0
