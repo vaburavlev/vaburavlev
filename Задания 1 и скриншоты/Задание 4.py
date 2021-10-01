@@ -1,6 +1,9 @@
 # --coding: utf -8 --
-seconds = 86400
-days = seconds / 86400
-hour = seconds / 3600
-minutes = seconds / 60
-print (days,'Дней:',hour,'часов:',minutes,'минут:',seconds,'секунд:')
+s=int(input('введите количество секунд\n'))
+d=s//86400
+q=s%86400
+h=q//3600
+w=q%3600
+m=w//60
+e=w%60
+print(d,'дня',':',h,'часа',':',m,'минут',':',e,'секунд')
