@@ -1,0 +1,7 @@
+# -- coding: utf-8 --
+s = 'xyzhzxyh'
+x = s[:s.find('h')] 
+y = s[s.find('h'):s.rfind('h') + 1]
+z = s[s.rfind('h') + 1:]
+s = x + y[::-1] + z
+print(s)

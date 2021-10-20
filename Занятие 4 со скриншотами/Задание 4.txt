@@ -1,0 +1,5 @@
+# -- coding: utf-8 --
+s = 'Дана строка'
+x = s[:s.find(' ')]
+y = s[s.find(' ') + 1:]
+print(y + ' ' + x)

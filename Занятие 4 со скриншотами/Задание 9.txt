@@ -1,0 +1,3 @@
+# -- coding: utf-8 --
+s = 'asda@sdasdasdasd@sdszdsds@dsdasdasd'
+print(s.replace('@', ''))
