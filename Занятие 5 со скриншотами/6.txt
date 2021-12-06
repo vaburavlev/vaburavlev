@@ -1,0 +1,9 @@
+# -- coding: utf-8 --  
+x = 0
+y = 0
+z = int(input())
+while z != 0:
+    x += z
+    y += 1
+    z = int(input())
+print(x / y)

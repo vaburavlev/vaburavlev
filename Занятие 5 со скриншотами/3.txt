@@ -1,0 +1,7 @@
+# -- coding: utf-8 --  
+n = int(input("Введите число: "))
+i = 0
+while 2 ** i <= n:
+    print(i)
+    i += 1
+print(i, 2 ** i)

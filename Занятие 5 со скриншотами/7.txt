@@ -1,0 +1,13 @@
+# -- coding: utf-8 --  
+ n = int(input())
+x = 0 
+y = 1 
+while n != 0:
+    if x<n:
+        x=n
+        if y<n:
+            y=1 
+    elif n == x and not x>n:
+        y+=1
+    n = int(input())
+print(y)
