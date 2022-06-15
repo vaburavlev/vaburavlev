@@ -1,0 +1,31 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Lenght: ");
+        int n = scan.nextInt();
+        double[] arr = new double[n];
+        for (int i = 0; i < arr.length; i++) {
+            System.out.printf("Enter %d number: ", i);
+            arr[i] = scan.nextDouble();
+        }
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != 0) {
+                count++;
+            }
+        }
+        double[] end = new double[count];
+        int tmp = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != 0) {
+                end[tmp] = arr[i] / 5;
+                tmp++;
+            }
+        }
+        Arrays.sort(end);
+        System.out.println(Arrays.toString(end));
+    }
+}

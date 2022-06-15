@@ -1,0 +1,30 @@
+import java.util.Vector;
+
+public class task23 {
+    public static void main(String[] args) {
+        int n = 5;
+        int m = 5;
+        double[][] arr = new double[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                arr[i][j] = (int) (Math.random() * 10);
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.print("\n");
+        }
+        System.out.print("\n");
+        Vector<Double> vector = new Vector<>();
+        double p = 0;
+        for (int j = 0; j < 5; j++) {
+            for (int i = 0; i < 5; i++) {
+                p *= arr[i][j];
+                vector.add(j, p);
+                p = 1;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            Double z = vector.get(i);
+            System.out.println("Vector["+(i+1)+"] =" + z);
+        }
+    }
+}
