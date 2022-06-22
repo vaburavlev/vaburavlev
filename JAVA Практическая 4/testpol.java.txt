@@ -1,0 +1,19 @@
+public class TestPol {
+    public static void main (String[] args){
+        MedObslyjivanie pol1 = new MedObslyjivanie("Poloklinika 10", "ul. Mamaeva 54", "Petrov M.D.","Hirurg","Samoilov E.I.","Perelom tazobedren sustav", "4128128391273899", "23.10.2001");
+        System.out.println(pol1);
+        MedObsl Pol11 = new MedObsl(pol1.getNamePolik(), pol1.getAdres(),pol1.getSurnameP(),pol1.getDoljnost(),pol1.getSurnameV(),pol1.getDiagnoz(),pol1.getNomerPol(),pol1.getDataOsm());
+        System.out.println(Pol11);
+        Osmotr pol12 = new Osmotr(pol1.getNamePolik(), pol1.getAdres(),pol1.getSurnameP(),pol1.getDoljnost(),pol1.getSurnameV(),pol1.getDiagnoz(),pol1.getNomerPol(),pol1.getDataOsm(),
+                "stacionarnyy",2001,"7 mesyacev","zdorov");
+        System.out.println(pol12);
+        Vakcina vac1 = new Vakcina(pol1.getNamePolik(), pol1.getAdres(),pol1.getSurnameP(),pol1.getDoljnost(),pol1.getDiagnoz(),pol1.getSurnameV(),pol1.getNomerPol(),pol1.getDataOsm(),pol12.getVid(),pol12.getGod(),pol12.getPeriod(),pol12.getRezyltat(),
+                "Sputnik-Lith", "02.05.2021","polgoda");
+        System.out.println(vac1);
+        Deti pol13= new Deti(pol1.getNamePolik(), pol1.getAdres(),pol1.getSurnameP(),pol1.getDiagnoz(),pol1.getDoljnost(), pol1.getSurnameV(),pol1.getNomerPol(),pol1.getDataOsm(),pol12.getVid(),pol12.getGod(),pol12.getPeriod(),pol12.getRezyltat(),vac1.getNameVac(),vac1.getDataVac(),vac1.getPeriodDo(),
+                "Fwo-843701","M",12);
+        System.out.println(pol13);
+        String newPacient = Pol11.add();
+        Pol11.show();
+    }
+}
