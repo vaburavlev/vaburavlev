@@ -1,0 +1,57 @@
+pizzas = {'P1': 'Пицца Маргарита', 'P2': 'Пицца Пепперони', 'P3': 'Пицца Гавайская', 'P4': 'Пицца Вегетарианская', 'P5': 'Пицца 4 сыра'}
+pizza_prices = {'P1': 10, 'P2': 12, 'P3': 15, 'P4': 13, 'P5': 14}
+drinks = {'D1': 'Кола', 'D2': 'Сок', 'D3': 'Чай'}
+drink_prices = {'D1': 3, 'D2': 4, 'D3': 2}
+# Функция для подсчета скидки
+def calculate_discount(items, total):
+    # Скидка за заказ более 50
+    if total > 50:
+        total *= 0.8
+    
+    # Скидка на напитки
+    drinks_count = 0
+    drinks_price = 0
+    for item in items:
+        if item.startswith('D'):
+            drinks_count += items[item]
+            drinks_price += drink_prices[item] * items[item]
+    if drinks_count > 3 and drinks_price > 2 * drinks_count:
+        total *= 0.85
+    
+    return total
+# Функция для вывода чека
+def print_bill(items, total):
+    print("Чек для оплаты:")
+    for item in items:
+        if item.startswith('P'):
+            print(f"{pizzas[item]} - {items[item]} - {pizza_prices[item] * items[item]}")
+        elif item.startswith('D'):
+            print(f"{drinks[item]} - {items[item]} - {drink_prices[item] * items[item]}")
+    print(f"Итого к оплате: {total}")
+# Основная программа
+items = {}
+# Выводим меню на экран
+print("Меню пицц:")
+for key in pizzas:
+    print(f"{key}: {pizzas[key]} - {pizza_prices[key]} руб.")
+print("\nМеню напитков:")
+for key in drinks:
+    print(f"{key}: {drinks[key]} - {drink_prices[key]} руб.")
+# Запрашиваем заказ пользователя
+while True:
+    code = input("Введите код продукта или 'q' для завершения заказа: ")
+    if code == 'q':
+        break
+    if code in pizzas or code in drinks:
+        count = int(input("Введите количество: "))
+        if count > 0:
+            if code in items:
+                items[code] += count
+            else:
+                items[code] = count
+# Рассчитываем итоговую стоимость с учетом скидок
+total_price = sum([pizza_prices[item] * items[item] for item in items if item.startswith('P')]) + \
+              sum([drink_prices[item] * items[item] for item in items if item.startswith('D')])
+total_price = calculate_discount(items, total_price)
+# Выводим чек на экран
+print_bill(items, total_price)
